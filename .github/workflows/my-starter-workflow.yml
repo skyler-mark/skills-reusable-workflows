@@ -15,6 +15,10 @@ jobs:
           echo test, and deploy to your project.
 
   call-reusable-workflow:
+     strategy:
+      matrix:
+       nodeversion: [14, 16, 18, 20]
      uses: ./.github/workflows/reusable-workflow.yml
-     with: 14
+     with:
+      node: ${{ matrix.nodeversion }}
 
